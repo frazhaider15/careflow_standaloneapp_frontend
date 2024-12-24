@@ -10,11 +10,15 @@ function App() {
   const getNewPage = async () => {
     try {
       const res = await fetch(
-        `https://dev-backend-formbuilder.31g.co.uk/page/render?appId=${62}&path=${location.pathname.slice(1)}`,
+        `https://dev-backend-formbuilder.31g.co.uk/page/render?appId=${62}&path=${location.pathname.slice(
+          1
+        )}`,
         {
           method: "POST",
         }
       );
+
+      setForm(res.data.form);
       console.log("res: ", res);
     } catch (err) {
       console.error(err);
@@ -25,8 +29,8 @@ function App() {
   }, [location.pathname]);
 
   return (
-    <div className="App">
-      <FormPreviewer form={{ formWorkspace: form }} dataDictionary={{}} />
+    <div>
+      <FormPreviewer form={form} dataDictionary={{}} />
     </div>
   );
 }
