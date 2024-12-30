@@ -7,11 +7,13 @@ function App() {
   const [form, setForm] = useState({});
   const location = useLocation();
   console.log("location: ", location);
+  var baseUrl = process.env.REACT_APP_BASE_URL
+  var token = process.env.REACT_APP_TOKEN
   const getNewPage = async () => {
     try {
       // I want  to send body as well with this request
       const res = await fetch(
-        `https://dev-backend-formbuilder.31g.co.uk/page/render?appId=${62}&path=${location.pathname.slice(1)}`,
+        `${baseUrl}/page/render?token=${token}&path=${location.pathname.slice(1)}`,
         {
           method: "POST",
           body : JSON.stringify({})
