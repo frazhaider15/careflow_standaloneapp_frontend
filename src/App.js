@@ -11,8 +11,8 @@ function App() {
   var token = process.env.REACT_APP_TOKEN
   const getNewPage = async () => {
     try {
-      // I want  to send body as well with this request
-      const res = await fetch(
+      
+      var res = await fetch(
         `${baseUrl}/page/render?token=${token}&path=${location.pathname.slice(1)}`,
         {
           method: "POST",
