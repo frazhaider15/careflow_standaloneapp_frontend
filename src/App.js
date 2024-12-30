@@ -16,12 +16,12 @@ function App() {
         `${baseUrl}/page/render?token=${token}&path=${location.pathname.slice(1)}`,
         {
           method: "POST",
-          body : JSON.stringify({})
+          body: JSON.stringify({}),
         }
       );
-
-      setForm(res.data.form);
+      res = await res.json();
       console.log("res: ", res);
+      setForm(JSON.parse(res?.data?.form));
     } catch (err) {
       console.error(err);
     }
@@ -30,6 +30,7 @@ function App() {
     getNewPage();
   }, [location.pathname]);
 
+  console.log('form:', form);
   return (
     <div>
       <FormPreviewer form={form} dataDictionary={{}} />
