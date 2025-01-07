@@ -7,14 +7,13 @@ function App() {
   const [form, setForm] = useState({});
   const location = useLocation();
   console.log("location: ", location);
-  var baseUrl = process.env.REACT_APP_BASE_URL;
-  var token = process.env.REACT_APP_TOKEN;
+  var baseUrl = process.env.REACT_APP_BASE_URL
+  var token = process.env.REACT_APP_TOKEN
   const getNewPage = async () => {
     try {
+      
       var res = await fetch(
-        `${baseUrl}/page/render?token=${token}&path=${location.pathname.slice(
-          1
-        )}`,
+        `${baseUrl}/page/render?token=${token}&path=${location.pathname.slice(1)}`,
         {
           method: "POST",
           body: JSON.stringify({}),
