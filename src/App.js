@@ -31,6 +31,7 @@ function App() {
     getNewPage();
   }, [location.pathname]);
 
+
   console.log('form:', form);
   return (
     <div>
